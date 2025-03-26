@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: ./
+      target: web-start
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - path: ./src
+          action: sync
+          target: /usr/src/app/src
+        - path: ./client/package.json
+          action: rebuild
